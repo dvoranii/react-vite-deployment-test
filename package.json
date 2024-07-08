@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "install:all": "npm install --workspaces",
-    "build": "npm run build --workspace=frontend",
+    "build:frontend": "npm run build --workspace=frontend",
     "start:frontend": "npm run dev --workspace=frontend",
     "start:backend": "npm start --workspace=backend",
     "start:all": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
@@ -14,6 +14,6 @@
     "backend"
   ],
   "devDependencies": {
-    "concurrently": "^8.2.1"
+    "concurrently": "^8.2.2"
   }
 }
