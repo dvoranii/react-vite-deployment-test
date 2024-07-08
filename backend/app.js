@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 const allowedOrigins =
   process.env.NODE_ENV === "production"
-    ? ["https://www.yourproductiondomain.com"]
+    ? ["https://www.ildidev.com"]
     : ["http://localhost:5173"];
 
 const corsOptions = {
