@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "install:all": "npm install --workspaces",
+    "install:all": "npm install",
     "build:frontend": "npm --prefix frontend run build",
     "start:frontend": "npm --prefix frontend run dev",
     "start:backend": "npm --prefix backend start",
