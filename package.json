@@ -1,12 +1,19 @@
 {
-  "name": "react-vite-deployment-test",
+  "name": "monorepo",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000r\u0000e\u0000a\u0000c\u0000t\u0000-\u0000v\u0000i\u0000t\u0000e\u0000-\u0000d\u0000e\u0000p\u0000l\u0000o\u0000y\u0000m\u0000e\u0000n\u0000t\u0000-\u0000t\u0000e\u0000s\u0000t\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install:all": "npm install --workspaces",
+    "build": "npm run build --workspace=frontend",
+    "start:frontend": "npm run dev --workspace=frontend",
+    "start:backend": "npm start --workspace=backend",
+    "start:all": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
 }
