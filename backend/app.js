@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
+import routes from "./api/routes.js";
 
 dotenv.config();
 
@@ -46,6 +47,8 @@ try {
 } catch (error) {
   console.error("Error decoding FIRESTORE_SERVICE_ACCOUNT:", error);
 }
+
+app.use("/api", routes);
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from the backend!" });
