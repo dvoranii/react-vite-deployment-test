@@ -42,7 +42,24 @@ jobs:
           script: |
             cd /var/www/react-vite-deployment-test
             git pull origin main
+            echo "Installing frontend dependencies"
             sudo npm install --prefix frontend
+            if [ $? -ne 0 ]; then
+              echo "Failed to install frontend dependencies"
+              exit 1
+            fi
+            echo "Installing backend dependencies"
             sudo npm install --prefix backend
-            sudo npm run build:frontend
+            if [ $? -ne 0 ]; then
+              echo "Failed to install backend dependencies"
+              exit 1
+            fi
+            echo "Building frontend"
+            npm run build:frontend
+            if [ $? -ne 0 ]; then
+              echo "Failed to build frontend"
+              exit 1
+            fi
+            echo "Restarting PM2 processes"
             pm2 restart all
+            pm2 logs
