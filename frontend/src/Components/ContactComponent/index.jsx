@@ -3,6 +3,7 @@ import "./styles.css";
 // import LoadingSpinnerSVG from "./LoadingSpinnerSVG";
 import { useState } from "react";
 import validateInput from "../../Utils/validateInput";
+import sanitizeInput from "../../Utils/sanitizeInput";
 
 function ContactComponent() {
   const [formData, setFormData] = useState({
@@ -45,13 +46,19 @@ function ContactComponent() {
     }
     setIsLoading(true);
 
+    const sanitizedData = {
+      name: sanitizeInput.text(formData.name),
+      email: sanitizeInput.email(formData.email),
+      message: sanitizeInput.text(formData.message),
+    };
+
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(sanitizedData),
         credentials: "include",
         mode: "cors",
       });
