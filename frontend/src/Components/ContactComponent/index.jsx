@@ -2,6 +2,7 @@ import "./styles.css";
 // import CheckmarkSVG from "./CheckmarkSVG";
 // import LoadingSpinnerSVG from "./LoadingSpinnerSVG";
 import { useState } from "react";
+import validateInput from "../../Utils/validateInput";
 
 function ContactComponent() {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ function ContactComponent() {
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,10 +20,29 @@ function ContactComponent() {
       ...prevFormData,
       [name]: value,
     }));
+
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {
+      name: validateInput.name(formData.name),
+      email: validateInput.email(formData.email),
+    };
+    setErrors(newErrors);
+    return Object.values(newErrors).every((error) => error === "");
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!validateForm()) {
+      console.log("Form validation failed", errors);
+      return;
+    }
     setIsLoading(true);
 
     try {
@@ -61,7 +82,7 @@ function ContactComponent() {
 
           <form className={`contact-form`} onSubmit={handleSubmit}>
             <div className="input-row">
-              <div className="name-input__wrapper">
+              <div className={`name-input__wrapper input__wrapper`}>
                 <input
                   className={`name-input`}
                   type="text"
@@ -70,9 +91,12 @@ function ContactComponent() {
                   value={formData.name}
                   onChange={handleChange}
                 />
+                {errors.name && (
+                  <span className="error-message">{errors.name}</span>
+                )}
               </div>
 
-              <div className="email-input__wrapper">
+              <div className={`email-input__wrapper input__wrapper`}>
                 <input
                   className={`email-input`}
                   type="text"
@@ -81,6 +105,9 @@ function ContactComponent() {
                   value={formData.email}
                   onChange={handleChange}
                 />
+                {errors.email && (
+                  <span className="error-message">{errors.email}</span>
+                )}
               </div>
             </div>
             <textarea
