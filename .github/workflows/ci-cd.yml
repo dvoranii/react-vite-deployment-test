@@ -22,21 +22,16 @@ jobs:
           node-version: "14"
 
       - name: Install frontend dependencies
-        run: sudo npm install --prefix frontend
+        run: npm install --prefix frontend
 
       - name: Install backend dependencies
-        run: sudo npm install --prefix backend
-
-      - name: Adjust permissions
-        run: |
-          sudo chown -R $USER:$USER /var/www/react-vite-deployment-test/frontend/dist
-          sudo chmod -R 755 /var/www/react-vite-deployment-test/frontend/dist
+        run: npm install --prefix backend
 
       - name: Build frontend
-        run: sudo npm run build:frontend
+        run: npm run build:frontend
 
       - name: Run backend tests
-        run: sudo npm --prefix backend test
+        run: npm --prefix backend test
 
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
@@ -49,12 +44,5 @@ jobs:
             git pull origin main
             sudo npm install --prefix frontend
             sudo npm install --prefix backend
-            sudo chown -R $USER:$USER /var/www/react-vite-deployment-test/frontend/dist
-            sudo chmod -R 755 /var/www/react-vite-deployment-test/frontend/dist
             sudo npm run build:frontend
-            if [ $? -ne 0 ]; then
-              echo "Failed to build frontend"
-              exit 1
-            fi
             pm2 restart all
-            pm2 logs
