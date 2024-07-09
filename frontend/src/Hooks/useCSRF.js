@@ -22,7 +22,6 @@ export const useCsrfToken = () => {
 
     fetchCsrfToken();
   }, []);
-  console.log("CSRF Token:", csrfToken);
 
   return csrfToken;
 };

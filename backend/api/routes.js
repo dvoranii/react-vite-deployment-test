@@ -6,15 +6,12 @@ const router = express.Router();
 router.use(express.json());
 
 router.post("/contact", async (req, res) => {
-  console.log("Received request body:", req.body);
-
   const { recaptchaToken } = req.body;
 
   try {
     const recaptchaResult = await verifyRecaptcha(recaptchaToken);
 
     if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
-      console.log(recaptchaResult);
       return res
         .status(400)
         .send({ status: "failed", error: "reCAPTCHA verification failed" });
