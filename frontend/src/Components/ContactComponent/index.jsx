@@ -5,9 +5,13 @@ import { useState } from "react";
 import validateInput from "../../Utils/validateInput";
 import sanitizeInput from "../../Utils/sanitizeInput";
 import { useCsrfToken } from "../../Hooks/useCSRF";
+import { useRecaptcha } from "../../Hooks/useReCAPTCHA";
 
 function ContactComponent() {
   const csrfToken = useCsrfToken();
+  const recaptchaToken = useRecaptcha(
+    "6LdntzApAAAAAH5dBl-21sMj1Gv0W_EdTEJV5tKF"
+  );
 
   const [formData, setFormData] = useState({
     name: "",
@@ -62,7 +66,7 @@ function ContactComponent() {
           "Content-Type": "application/json",
           "X-CSRF-Token": csrfToken,
         },
-        body: JSON.stringify(sanitizedData),
+        body: JSON.stringify({ ...sanitizedData, recaptchaToken }),
         credentials: "include",
         mode: "cors",
       });
