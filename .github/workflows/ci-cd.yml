@@ -42,7 +42,7 @@ jobs:
           script: |
             cd /var/www/react-vite-deployment-test
             git pull origin main
-            npm install --prefix frontend
-            npm install --prefix backend
-            npm run build:frontend
+            sudo npm install --prefix frontend
+            sudo npm install --prefix backend
+            sudo npm run build:frontend
             pm2 restart all
