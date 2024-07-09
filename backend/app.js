@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
 import routes from "./api/routes.js";
+import csrfMiddleware from "./api/middleware/csrf.js";
 
 dotenv.config();
 
@@ -48,6 +49,7 @@ try {
   console.error("Error decoding FIRESTORE_SERVICE_ACCOUNT:", error);
 }
 
+csrfMiddleware(app);
 app.use("/api", routes);
 
 app.get("/api", (req, res) => {

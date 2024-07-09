@@ -4,8 +4,11 @@ import "./styles.css";
 import { useState } from "react";
 import validateInput from "../../Utils/validateInput";
 import sanitizeInput from "../../Utils/sanitizeInput";
+import { useCsrfToken } from "../../Hooks/useCSRF";
 
 function ContactComponent() {
+  const csrfToken = useCsrfToken();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -57,6 +60,7 @@ function ContactComponent() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken,
         },
         body: JSON.stringify(sanitizedData),
         credentials: "include",
