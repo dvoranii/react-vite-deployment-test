@@ -39,6 +39,7 @@ router.post("/contact", async (req, res) => {
     res.json({
       message: "Form submission received and reCAPTCHA verified",
       data: req.body,
+      status: "success",
     });
   } catch (error) {
     console.error("Error verifying reCAPTCHA:", error);

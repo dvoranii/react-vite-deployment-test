@@ -1,4 +1,4 @@
-import "./App.css";
+import "./global.css";
 import ContactComponent from "./Components/ContactComponent";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 

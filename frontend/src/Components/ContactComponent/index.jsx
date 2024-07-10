@@ -1,6 +1,6 @@
 import "./styles.css";
-// import CheckmarkSVG from "./CheckmarkSVG";
-// import LoadingSpinnerSVG from "./LoadingSpinnerSVG";
+import CheckmarkAnimation from "./CheckmarkAnimation";
+import LoadingSpinner from "./LoadingSpinner";
 import { useState } from "react";
 import validateInput from "../../Utils/validateInput";
 import sanitizeInput from "../../Utils/sanitizeInput";
@@ -72,10 +72,13 @@ function ContactComponent() {
       });
 
       const result = await response.json();
-      console.log("Response received:", result);
 
       if (result.status === "success") {
         setIsSuccess(true);
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 3000);
       } else {
         setIsSuccess(false);
       }
@@ -134,6 +137,7 @@ function ContactComponent() {
               value={formData.message}
               onChange={handleChange}
             ></textarea>
+
             <div className="button-row">
               {!isLoading && !isSuccess && (
                 <button
@@ -147,8 +151,23 @@ function ContactComponent() {
                   Send
                 </button>
               )}
-              {isLoading && <div>Loading...</div>}
-              {!isLoading && isSuccess && <div>Message Sent!</div>}
+              {isLoading && (
+                <div className="loading-wrapper">
+                  <LoadingSpinner />
+                </div>
+              )}
+              {!isLoading && isSuccess && (
+                <div className="check-wrapper">
+                  <CheckmarkAnimation />
+                  <p className="message-sent">Sent!</p>
+                </div>
+              )}
+              <span className={`outlook-span`}>
+                Have Outlook?<br></br> Simply click&nbsp;
+                <a className={`here-link`} href="mailto:ildidvorani@gmail.com">
+                  here
+                </a>
+              </span>
             </div>
           </form>
         </div>
