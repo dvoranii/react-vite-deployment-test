@@ -1,14 +1,30 @@
 import express from "express";
 import verifyRecaptcha from "./utils/verifyCaptcha.js";
+import sanitizeInput from "./utils/sanitize.js";
+import validateInput from "./utils/validate.js";
 
 const router = express.Router();
 
 router.use(express.json());
 
 router.post("/contact", async (req, res) => {
-  const { recaptchaToken } = req.body;
+  let { name, email, message, recaptchaToken } = req.body;
+
+  const nameError = validateInput.name(name);
+  const emailError = validateInput.email(email);
+
+  if (nameError || emailError) {
+    return res.status(400).send({
+      status: "failed",
+      errors: { nameError, emailError },
+    });
+  }
 
   try {
+    name = sanitizeInput.text(name);
+    email = sanitizeInput.text(email);
+    message = sanitizeInput.message(message);
+
     const recaptchaResult = await verifyRecaptcha(recaptchaToken);
 
     if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
