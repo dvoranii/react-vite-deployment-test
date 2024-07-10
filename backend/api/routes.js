@@ -2,6 +2,7 @@ import express from "express";
 import verifyRecaptcha from "./utils/verifyCaptcha.js";
 import sanitizeInput from "./utils/sanitize.js";
 import validateInput from "./utils/validate.js";
+import saveFormSubmission from "./utils/firestore.js";
 
 const router = express.Router();
 
@@ -32,6 +33,8 @@ router.post("/contact", async (req, res) => {
         .status(400)
         .send({ status: "failed", error: "reCAPTCHA verification failed" });
     }
+
+    await saveFormSubmission({ name, email, message });
 
     res.json({
       message: "Form submission received and reCAPTCHA verified",

@@ -33,22 +33,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-const base64String = process.env.FIRESTORE_SERVICE_ACCOUNT;
-
-if (!base64String) {
-  throw new Error(
-    "FIRESTORE_SERVICE_ACCOUNT environment variable is not defined"
-  );
-}
-
-try {
-  const jsonString = Buffer.from(base64String, "base64").toString("utf-8");
-  const jsonObject = JSON.parse(jsonString);
-  console.log("Parsed JSON Object:", jsonObject);
-} catch (error) {
-  console.error("Error decoding FIRESTORE_SERVICE_ACCOUNT:", error);
-}
-
 csrfMiddleware(app);
 app.use("/api", routes);
 
