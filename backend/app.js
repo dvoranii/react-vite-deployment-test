@@ -5,6 +5,8 @@ import { fileURLToPath } from "url";
 import cors from "cors";
 import routes from "./api/routes.js";
 import csrfMiddleware from "./api/middleware/csrf.js";
+import security from "./api/middleware/security.js";
+import compression from "compression";
 
 dotenv.config();
 
@@ -31,10 +33,26 @@ const corsOptions = {
   credentials: true,
 };
 
+app.set("trust proxy", 1);
+
+app.use(compression());
+
+security(app);
+
 app.use(cors(corsOptions));
 
 csrfMiddleware(app);
 app.use("/api", routes);
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/robots.txt", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "robots.txt"));
+});
+
+app.get("/sitemap.xml", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "sitemap.xml"));
+});
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from the backend!" });
