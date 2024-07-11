@@ -3,6 +3,7 @@ import verifyRecaptcha from "./utils/verifyCaptcha.js";
 import sanitizeInput from "./utils/sanitize.js";
 import validateInput from "./utils/validate.js";
 import saveFormSubmission from "./utils/firestore.js";
+import sendEmail from "./utils/sendEmail.js";
 
 const router = express.Router();
 
@@ -36,11 +37,17 @@ router.post("/contact", async (req, res) => {
 
     await saveFormSubmission({ name, email, message });
 
-    res.json({
-      message: "Form submission received and reCAPTCHA verified",
-      data: req.body,
-      status: "success",
-    });
+    const emailResult = await sendEmail({ name, email, message });
+
+    if (emailResult.success) {
+      res.status(200).send({
+        status: "success",
+        message: "Form submission received and reCAPTCHA verified",
+        data: req.body,
+      });
+    } else {
+      res.status(500).send({ status: "failed", error: emailResult.error });
+    }
   } catch (error) {
     console.error("Error verifying reCAPTCHA:", error);
     res.status(500).send({ status: "failed", error: "Server error" });

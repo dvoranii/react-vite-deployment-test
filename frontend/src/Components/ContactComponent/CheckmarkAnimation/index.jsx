@@ -11,18 +11,18 @@ function CheckmarkAnimation() {
         <circle
           className={`path circle`}
           fill="none"
-          stroke="#73AF55"
-          strokeWidth="6"
+          stroke="#40f23a"
+          strokeWidth="8"
           strokeMiterlimit="10"
           cx="65.1"
           cy="65.1"
-          r="62.1"
+          r="61.1"
         />
         <polyline
           className={`path check`}
           fill="none"
-          stroke="#73AF55"
-          strokeWidth="6"
+          stroke="#40f23a"
+          strokeWidth="8"
           strokeLinecap="round"
           strokeMiterlimit="10"
           points="100.2,40.2 51.5,88.8 29.8,67.5"
