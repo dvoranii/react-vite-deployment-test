@@ -3,6 +3,8 @@ import { HelmetProvider, Helmet } from "react-helmet-async";
 import NavComponent from "./Components/Sections/NavComponent";
 import HeroComponent from "./Components/Sections/HeroComponent";
 import AboutComponent from "./Components/Sections/AboutComponent";
+import SkillsComponent from "./Components/Sections/SkillsComponent";
+import CompaniesComponent from "./Components/Sections/CompaniesComponent";
 import ContactComponent from "./Components/Sections/ContactComponent";
 import FooterComponent from "./Components/Sections/FooterComponent";
 
@@ -31,6 +33,8 @@ function App() {
       <NavComponent></NavComponent>
       <HeroComponent></HeroComponent>
       <AboutComponent></AboutComponent>
+      <SkillsComponent></SkillsComponent>
+      <CompaniesComponent></CompaniesComponent>
       <ContactComponent></ContactComponent>
       <FooterComponent></FooterComponent>
     </>

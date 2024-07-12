@@ -51,7 +51,7 @@ function AboutComponent() {
   }, []);
 
   return (
-    <div className={`about--wrapper`} id="about-me--section">
+    <div className={`about--wrapper`} id="about">
       <TitleComponent
         textContent={"About Me"}
         classTitle={"about-me-title"}

@@ -50,7 +50,7 @@ function HeroComponent() {
                 <span>Projects</span>
               </button>
             </a>
-            <a href="/#about-me--section">
+            <a href="/#about">
               <button className={`custom-btn btn-3`} id="services-btn">
                 <span>About Me</span>
               </button>
