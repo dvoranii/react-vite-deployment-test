@@ -2,10 +2,10 @@ import "./styles.css";
 import CheckmarkAnimation from "./CheckmarkAnimation";
 import LoadingSpinner from "./LoadingSpinner";
 import { useState } from "react";
-import validateInput from "../../Utils/validateInput";
-import sanitizeInput from "../../Utils/sanitizeInput";
-import { useCsrfToken } from "../../Hooks/useCSRF";
-import { useRecaptcha } from "../../Hooks/useReCAPTCHA";
+import validateInput from "@utils/validateInput";
+import sanitizeInput from "@utils/sanitizeInput";
+import { useCsrfToken } from "@hooks/useCSRF";
+import { useRecaptcha } from "@hooks/useReCAPTCHA";
 
 function ContactComponent() {
   const csrfToken = useCsrfToken();
