@@ -49,17 +49,17 @@ function NavComponent() {
         </div>
         <ul className={navActive ? "nav--list nav-active" : "nav--list"}>
           <li>
-            <a href="#about-me--section" className="nav-link">
+            <a href="#about" className="nav-link">
               About Me
             </a>
           </li>
           <li>
-            <a href="#projects-section" className="nav-link">
+            <a href="#projects" className="nav-link">
               Projects
             </a>
           </li>
           <li>
-            <a href="#contact-section" className="nav-link">
+            <a href="#contact" className="nav-link">
               Contact
             </a>
           </li>

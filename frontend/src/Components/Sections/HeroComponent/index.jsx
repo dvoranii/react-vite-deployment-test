@@ -9,11 +9,6 @@ function HeroComponent() {
   const text = "Full Stack Developer";
   const i = useRef(0);
 
-  // understand closures here...
-  // could make a useful tutorial...
-  // Need to use this apprao
-  // this might need to be its own component
-
   useEffect(() => {
     i.current = 0; // Reset i to 0 every time useEffect runs
     setJobTitle(" "); // Reset jobTitle to an empty string every time useEffect runs
@@ -45,12 +40,12 @@ function HeroComponent() {
           <h2>{jobTitle}</h2>
           <p>Welcome to my portfolio website...</p>
           <div className="hero-btns">
-            <a href="#projects-section">
+            <a href="#projects">
               <button className={`custom-btn btn-3`} id="projects-btn">
                 <span>Projects</span>
               </button>
             </a>
-            <a href="/#about">
+            <a href="#about">
               <button className={`custom-btn btn-3`} id="services-btn">
                 <span>About Me</span>
               </button>

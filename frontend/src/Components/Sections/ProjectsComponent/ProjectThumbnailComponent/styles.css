@@ -1,0 +1,60 @@
+.thumbnail img {
+  max-width: 100%;
+}
+.thumbnail {
+  display: flex;
+  justify-content: center;
+}
+
+.thumbnail--wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.project_2-thumbnail--wrapper {
+  background: linear-gradient(
+    to top,
+    rgba(128, 128, 128, 0.685),
+    rgb(77, 77, 77)
+  );
+}
+
+.project_1-thumbnail--wrapper {
+  background-color: #1c1b20;
+}
+
+.project_2-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_1-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_3-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_4-thumbnail--wrapper:hover .thumbnail-overlay,
+.project_5-thumbnail--wrapper:hover .thumbnail-overlay {
+  transform: translateY(100%);
+  cursor: pointer;
+}
+
+.project_5-thumbnail {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  padding: 10% 0%;
+}
+.project_5-thumbnail img {
+  width: 40%;
+}
+
+@media screen and (max-width: 780px) {
+  .project_3-thumbnail {
+    max-height: 50vw;
+  }
+
+  .project_3-thumbnail img {
+    margin-top: -50px;
+  }
+
+  .project_2-thumbnail--wrapper {
+    grid-row: 2;
+  }
+}

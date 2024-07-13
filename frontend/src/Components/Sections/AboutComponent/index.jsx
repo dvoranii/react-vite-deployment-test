@@ -5,8 +5,7 @@ import DesignImg from "/assets/about/WebDesignSVG.svg";
 import TitleComponent from "@reusable/TitleComponent";
 import AboutMeImage from "/assets/about/me-edited-better.jpg";
 import HiBubble from "/assets/about/hi-bubble.png";
-import ButtonsComponent from "../../Reusable/ButtonsComponent";
-// import ModalButtonsComponent from "../ProjectsComponent/Components/ProjectModalComponent/Components/ModalButtonsComponent";
+import ButtonsComponent from "@reusable/ButtonsComponent";
 
 function AboutComponent() {
   const waveRef = useRef(null);

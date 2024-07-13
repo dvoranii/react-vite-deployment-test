@@ -90,7 +90,7 @@ function ContactComponent() {
   };
   return (
     <div>
-      <div className={`contact-section`}>
+      <div className={`contact-section`} id="contact">
         <div className={`contact-section__inner container`}>
           <h1>Let&apos;s Connect!</h1>
           <p>
