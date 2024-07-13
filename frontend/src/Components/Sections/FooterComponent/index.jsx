@@ -25,23 +25,23 @@ function FooterComponent() {
 
             <ul className={`footer--nav-list`}>
               <li>
-                <a className={`footer-link`} href="/#section1">
+                <a className={`footer-link`} href="/#hero">
                   Home
                 </a>
               </li>
               <li>
-                <a className={`footer-link`} href="/#about-me--section">
+                <a className={`footer-link`} href="/#about">
                   About Me
                 </a>
               </li>
               <li>
-                <a className={`footer-link`} href="/#skills--section">
+                <a className={`footer-link`} href="/#skills">
                   My Skills
                 </a>
               </li>
 
               <li>
-                <a className={`footer-link`} href="/#projects-section">
+                <a className={`footer-link`} href="/#projects">
                   My Projects
                 </a>
               </li>
@@ -67,7 +67,7 @@ function FooterComponent() {
               <li>
                 <img src={LinkedInLogo}></img>{" "}
                 <a
-                  href="https://www.linkedin.com/in/ildi-dvorani-a04452210/"
+                  href="https://www.linkedin.com/in/ildi-d-a04452210"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -14,7 +14,7 @@ import Tilt from "react-vanilla-tilt";
 
 function SkillsComponent() {
   return (
-    <div id="skills--section">
+    <div id="skills">
       <TitleComponent
         textContent={"My Skills"}
         classTitle={"skills-title"}

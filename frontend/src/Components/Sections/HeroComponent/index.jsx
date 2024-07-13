@@ -33,7 +33,7 @@ function HeroComponent() {
   }, []);
 
   return (
-    <div className="hero--wrapper" id="section1">
+    <div className="hero--wrapper" id="hero">
       <div className={`hero--inner container`}>
         <div className="hero--intro-text__wrapper">
           <h1>Ildi&nbsp;Dvorani</h1>
