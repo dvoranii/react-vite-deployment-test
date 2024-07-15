@@ -198,11 +198,11 @@ function AboutComponent() {
           </p>
           <ul className={`about-me__part2--list`}>
             <li>
-              <span className={`bold`}>Data Management:</span> While familiar
-              with SQL, my expertise lies in using NoSQL databases. I design and
-              implement data structures optimized for flexibility, scalability,
-              and data integrity, frequently employing tools like Google
-              Firebase for small to medium-sized applications.
+              <span className={`bold`}>Data Management:</span> I specialize in
+              NoSQL databases and design and implement data structures optimized
+              for flexibility, scalability, and data integrity. I frequently use
+              tools like Google Firebase for small to medium-sized applications,
+              and I am also proficient in SQL.
             </li>
             <li>
               <span className={`bold`}>Server-Side Logic:</span> I manage core
@@ -211,13 +211,14 @@ function AboutComponent() {
             </li>
             <li>
               <span className={`bold`}>API Development:</span> I create RESTful
-              APIs for effective frontend and backend communication.
+              APIs to facilitate effective communication between the frontend
+              and backend, ensuring smooth data exchange and integration.
             </li>
             <li>
-              <span className={`bold`}>Scalability and Performance:</span>{" "}
-              Leveraging the asynchronous capabilities of Node.js, I ensure
-              applications are responsive and can handle increasing loads
-              without sacrificing performance.
+              <span className={`bold`}>Scalability and Performance:</span> By
+              leveraging the asynchronous capabilities of Node.js, I ensure
+              applications remain responsive and can handle increasing loads
+              without compromising performance.
             </li>
             <li>
               <span className={`bold`}>Infrastructure and Deployment:</span>{" "}

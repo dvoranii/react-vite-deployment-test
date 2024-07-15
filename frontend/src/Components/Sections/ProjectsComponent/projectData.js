@@ -1,4 +1,3 @@
-// download the images
 import OGCarouselImg1 from "/assets/projects/OG-gallery-img(1).png";
 import OGCarouselImg2 from "/assets/projects/OG-gallery-img(2).png";
 import OGCarouselImg3 from "/assets/projects/OG-gallery-img(3).png";
@@ -61,7 +60,7 @@ const projects = {
       "Node",
       "Photoshop",
     ],
-    projectDescription: `I spearheaded the beta development of Canadian Global Logistics® Inc.'s website on Vercel, featuring a 3D spinning globe and advanced, responsive design. The site includes detailed forms for quotes and contacts, showcasing my skills in creating functional, aesthetically pleasing web solutions for the logistics sector.`,
+    projectDescription: `I led the development of the website for Canadian Global Logistics® Inc., transitioning it to a client-side rendered vanilla-js MPA hosted on DigitalOcean. The site features an advanced, responsive design and a 3D spinning globe component created with Three.js, highlighting my proficiency in integrating interactive visual elements. The backend is powered by Node.js and Express, with Firestore for database management. The deployment includes an Nginx web server on a Linux/Debian instance, ensuring optimal performance and security. Detailed forms for quotes and contacts demonstrate my ability to create functional, user-friendly web solutions for the logistics sector.`,
     galleryImages: [CGLCarouselThumb, CGLCarouselImg2, CGLCarouselImg3],
     githubURL: "https://github.com/dvoranii/CGL-MPA-Monorepo",
     liveDemoURL: "https://cglwebsitetest.xyz",
@@ -102,7 +101,7 @@ const projects = {
       "CSS",
     ],
     galleryImages: [IldiDevCarouselThumb],
-    githubURL: "https://github.com/dvoranii/portfolio-site-react",
+    githubURL: "https://github.com/dvoranii/react-vite-deployment-test",
     projectDescription:
       "I designed and developed this portfolio site, starting with a Figma design and bringing it to life with modern web technologies. It's a Progressive Web App for improved offline access and performance. The site features an integrated service worker for optimal loading and an automated script for regular updates.",
     liveDemoURL: "N/A",

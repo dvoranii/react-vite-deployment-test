@@ -341,6 +341,11 @@
   .about-me__text-container {
     padding-left: 45px;
   }
+
+  .hi-bubble-container,
+  .wave-container {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -524,7 +529,6 @@
 
   .skills-boxes {
     grid-template-columns: repeat(3, 1fr);
-    /* margin: auto; */
   }
 
   .about-me__text-container:first-child {
