@@ -11,12 +11,15 @@ import InsuletLogo from "/assets/companies/insulet-logo.png";
 function CompaniesComponent() {
   return (
     <div className={`companies--wrapper__outer`}>
-      <p className={`companies-intro`}>
-        {" "}
-        Some companies I&apos;ve had the pleasure
-        <br className={`desktop-break`} />
-        of doing work for:
-      </p>
+      <div className="companies-intro--container">
+        <p className={`companies-intro`}>
+          {" "}
+          Some companies I&apos;ve had the pleasure
+          <br className={`desktop-break`} />
+          of doing work for:
+        </p>
+      </div>
+
       <div className="companies--wrapper__inner">
         <div className={`img--wrapper img1`}>
           <img src={JanssenLogo} alt="JANSSEN" title="Janssen" />

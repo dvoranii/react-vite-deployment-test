@@ -104,6 +104,10 @@
   opacity: 0;
 }
 
+.skill-card--img-wrapper .html-skill-logo {
+  max-width: 140px;
+}
+
 @media screen and (max-width: 1076px) {
   .skills--wrapper__inner {
     grid-template-columns: repeat(2, 1fr);
@@ -153,7 +157,7 @@
 
 @media screen and (max-width: 380px) {
   .tilt {
-    width: 25vh !important;
+    width: 34vh !important;
     height: 220vw !important;
   }
 
